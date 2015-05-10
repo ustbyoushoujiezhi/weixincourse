@@ -78,64 +78,6 @@ public class CoreService {
             	String textmessage = requestMap.get("Content");
             	textService textservice = new textService(fromUserName,textmessage);
             	respContent.append(textservice.service());
-            	
-            	
-          /********************************************************************** 	
-            	if(zhuce_flag != 0)
-            	{
-            		switch (zhuce_flag)
-            		{
-            		case 1:{
-            			   //Studentmessage  studentmessage = new Studentmessage();
-            				respContent.append("请输入您的学号");
-            				studentmessage.setstuname(requestMap.get("Content"));
-            				zhuce_flag = 2;
-            				}break;
-            		case 2:{
-            			    
-            				respContent.append("请输入您的身份证号后六位");
-            				studentmessage.setstudentnum(requestMap.get("Content"));
-            				zhuce_flag = 3;
-            				}break;
-            		case 3:{
-            				studentmessage.setIDcode6(requestMap.get("Content"));
-            				studentmessage.settelenum("1111111");
-            				studentmessage.setopenid(fromUserName);
-            				dumpenergy dump = new dumpenergy();
-            				dump = studentmessage.verifstu(studentmessage);
-            				if(dump.getdormityno()==null)
-            				{
-            					respContent.append("注册失败请核对信息后重新注册\n");
-            					respContent.append("请输入姓名");
-            					zhuce_flag = 1;
-            				}
-            				else
-            				{
-            					studentmessage.addstu();//插入到数据中
-            					respContent.append(studentmessage.getstuname()).append("\n");
-                				respContent.append(studentmessage.getstudentnum()).append("\n");
-                				respContent.append(studentmessage.getIDcode6()).append("\n");
-                				respContent.append("宿舍号").append(dump.getdormityno()).append("\n");
-                				respContent.append(studentmessage.getopenid()).append("\n");
-            					respContent.append("恭喜您注册成功,回复 ？显示主菜单\n");
-                				zhuce_flag = 0;
-            				}
-            				}
-            		}
-            	}else {
-            		 String textContent = requestMap.get("Content");
-            		 if("?".equals(textContent))
-            		 {
-            			 respContent.append(getmainmenu());
-            		 }else if(textContent == "1")
-            		 {
-            			 ;
-            		 }
-            			 
-            		 
-        				
-        		}
-        		***************************************************/
             }  
             // 图片消息  
             else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_IMAGE)) {  
